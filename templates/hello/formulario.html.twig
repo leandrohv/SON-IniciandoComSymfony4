@@ -1,0 +1,9 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+
+    <p>{{ form_start(form, {"attr": { "novalidate": "novalidade"} }) }}</p>
+    <p>{{ form_widget(form) }}</p>
+    <p>{{ form_end(form) }}</p>
+
+{% endblock %}
