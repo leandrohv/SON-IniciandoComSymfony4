@@ -3,14 +3,14 @@
 namespace App\Controller;
 
 use App\Entity\Produto;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-class HelloController extends AbstractController
+class HelloController extends Controller
 {
     /**
      * @return Response
@@ -66,7 +66,7 @@ class HelloController extends AbstractController
         $produto = new Produto();
 
         $form = $this->createFormBuilder()
-            ->add('nome', TextType::class)
+            ->add('nome', TextType::class, ['required' => true])
             ->add('preco', TextType::class)
             ->add('enviar', SubmitType::class, ['label' => "Salvar"])
             ->getForm();

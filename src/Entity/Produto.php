@@ -21,7 +21,7 @@ class Produto
      * @var string
      *
      * @ORM\Column(type="string", length=100)
-     * @Assert\NotBlank
+     * @Assert\NotBlank(message="Campo nome não pode ser vazio!")
      */
     private $nome;
 
@@ -29,9 +29,18 @@ class Produto
      * @var float
      *
      * @ORM\Column(type="decimal", scale=2)
-     * @Assert\NotBlank
+     * @Assert\NotBlank(message="Campo preço não pode ser vazio!")
      */
     private $preco;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(type="text")
+     * @Assert\NotBlank(message="Campo descrição não pode ser vazio!")
+     *
+     */
+    private $descricao;
 
 //
 //    public function getId(): ?int
@@ -42,7 +51,7 @@ class Produto
     /**
      * @return mixed
      */
-    public function getId(): ?int
+    public function getId()
     {
         return $this->id;
     }
@@ -60,7 +69,7 @@ class Produto
     /**
      * @return string
      */
-    public function getNome(): string
+    public function getNome()
     {
         return $this->nome;
     }
@@ -69,7 +78,7 @@ class Produto
      * @param string $nome
      * @return Produto
      */
-    public function setNome(string $nome): Produto
+    public function setNome($nome)
     {
         $this->nome = $nome;
         return $this;
@@ -78,7 +87,7 @@ class Produto
     /**
      * @return float
      */
-    public function getPreco(): float
+    public function getPreco()
     {
         return $this->preco;
     }
@@ -87,11 +96,28 @@ class Produto
      * @param float $preco
      * @return Produto
      */
-    public function setPreco(float $preco): Produto
+    public function setPreco($preco)
     {
         $this->preco = $preco;
         return $this;
     }
 
+    /**
+     * @return string
+     */
+    public function getDescricao()
+    {
+        return $this->descricao;
+    }
+
+    /**
+     * @param string $descricao
+     * @return Produto
+     */
+    public function setDescricao($descricao)
+    {
+        $this->descricao = $descricao;
+        return $this;
+    }
 
 }
